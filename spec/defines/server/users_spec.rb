@@ -1,5 +1,5 @@
 require 'spec_helper'
-describe 'stns::server::users' do
+describe 'stns_v1::server::users' do
   let(:title) { 'sample' }
 
   let(:params) do

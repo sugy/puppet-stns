@@ -1,11 +1,11 @@
-# Class: stns::client::install
+# Class: stns_v1::client::install
 # ===========================
 #
-# stns::client::install is to install libnss-stns and libpam-stns files.
+# stns_v1::client::install is to install libnss-stns and libpam-stns files.
 
-class stns::client::install (
-  $libnss_stns_ensure = $stns::client::libnss_stns_ensure,
-  $libpam_stns_ensure = $stns::client::libpam_stns_ensure,
+class stns_v1::client::install (
+  $libnss_stns_ensure = $stns_v1::client::libnss_stns_ensure,
+  $libpam_stns_ensure = $stns_v1::client::libpam_stns_ensure,
 ){
 
   package {

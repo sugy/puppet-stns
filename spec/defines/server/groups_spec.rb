@@ -1,5 +1,5 @@
 require 'spec_helper'
-describe 'stns::server::groups' do
+describe 'stns_v1::server::groups' do
   let(:title) { 'sample' }
 
   let(:params) do

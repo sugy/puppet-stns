@@ -57,17 +57,17 @@ Release 1.5.0 (2016/07/29)
 Release 1.4.0 (2016/06/27)
 ---
 
-- Feature: Add params `$request_timeout` and `$http_proxy` to stns::client class [#21](https://github.com/STNS/puppet-stns/pull/21)
+- Feature: Add params `$request_timeout` and `$http_proxy` to stns_v1::client class [#21](https://github.com/STNS/puppet-stns/pull/21)
 
 Release 1.3.0 (2016/06/09)
 ---
 
-- Feature: Add `$package_latest` option to catch up latest packages in stns::server [#19](https://github.com/STNS/puppet-stns/pull/19)
+- Feature: Add `$package_latest` option to catch up latest packages in stns_v1::server [#19](https://github.com/STNS/puppet-stns/pull/19)
 
 Release 1.2.0 (2016/06/09)
 ---
 
-- Feature: Add `$package_latest` option to catch up latest packages in stns::client [#18](https://github.com/STNS/puppet-stns/pull/18)
+- Feature: Add `$package_latest` option to catch up latest packages in stns_v1::client [#18](https://github.com/STNS/puppet-stns/pull/18)
 
 Release 1.1.0 (2016/05/03)
 ---

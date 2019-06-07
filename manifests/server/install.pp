@@ -1,10 +1,10 @@
-# Class: stns::server::install
+# Class: stns_v1::server::install
 # ===========================
 #
-# stns::server::install is to install stns.
+# stns_v1::server::install is to install stns.
 
-class stns::server::install (
-  $_ensure = $stns::server::package_ensure,
+class stns_v1::server::install (
+  $_ensure = $stns_v1::server::package_ensure,
 ){
 
   package { 'stns':

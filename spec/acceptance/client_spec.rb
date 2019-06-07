@@ -1,7 +1,7 @@
 require 'spec_helper_acceptance'
 require 'toml-rb'
 
-describe 'stns::client class' do
+describe 'stns_v1::client class' do
   let(:manifest) do
     <<-EOS
       package { 'openssh-server':
@@ -17,7 +17,7 @@ describe 'stns::client class' do
         ensure => running,
       }
 
-      class { '::stns::client':
+      class { '::stns_v1::client':
         api_end_point      => [
           'http://stns1.example.jp:1104',
           'http://stns2.example.jp:1104',

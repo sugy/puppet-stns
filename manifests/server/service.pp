@@ -1,9 +1,9 @@
-# Class: stns::server::service
+# Class: stns_v1::server::service
 # ===========================
 #
-# stns::server::service is to manage service of stns.
+# stns_v1::server::service is to manage service of stns.
 
-class stns::server::service {
+class stns_v1::server::service {
 
   service { 'stns':
     ensure => running,

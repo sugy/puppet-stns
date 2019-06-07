@@ -1,20 +1,20 @@
-# Class: stns::client::config
+# Class: stns_v1::client::config
 # ===========================
 #
-# stns::client::config is to configure libnss-stns.
+# stns_v1::client::config is to configure libnss-stns.
 
-class stns::client::config (
-  $api_end_point     = $stns::client::api_end_point,
-  $user              = $stns::client::user,
-  $password          = $stns::client::password,
-  $wrapper_path      = $stns::client::wrapper_path,
-  $chain_ssh_wrapper = $stns::client::chain_ssh_wrapper,
-  $ssl_verify        = $stns::client::ssl_verify,
-  $request_timeout   = $stns::client::request_timeout,
-  $http_proxy        = $stns::client::http_proxy,
-  $request_header    = $stns::client::request_header,
-  $uid_shift         = $stns::client::uid_shift,
-  $gid_shift         = $stns::client::gid_shift,
+class stns_v1::client::config (
+  $api_end_point     = $stns_v1::client::api_end_point,
+  $user              = $stns_v1::client::user,
+  $password          = $stns_v1::client::password,
+  $wrapper_path      = $stns_v1::client::wrapper_path,
+  $chain_ssh_wrapper = $stns_v1::client::chain_ssh_wrapper,
+  $ssl_verify        = $stns_v1::client::ssl_verify,
+  $request_timeout   = $stns_v1::client::request_timeout,
+  $http_proxy        = $stns_v1::client::http_proxy,
+  $request_header    = $stns_v1::client::request_header,
+  $uid_shift         = $stns_v1::client::uid_shift,
+  $gid_shift         = $stns_v1::client::gid_shift,
 ){
 
   file { '/etc/stns/libnss_stns.conf':
