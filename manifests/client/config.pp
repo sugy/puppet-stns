@@ -22,7 +22,7 @@ class stns_v1::client::config (
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    content => template('stns/libnss_stns.conf.erb'),
+    content => template('stns_v1/libnss_stns.conf.erb'),
   }
 
 }

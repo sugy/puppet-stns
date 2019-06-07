@@ -10,7 +10,7 @@ define stns_v1::server::groups (
 
   concat::fragment { "groups_${title}":
     target  => '/etc/stns/stns.conf',
-    content => template('stns/groups.conf.erb'),
+    content => template('stns_v1/groups.conf.erb'),
     order   => '61',
   }
 

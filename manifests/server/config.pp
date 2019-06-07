@@ -25,7 +25,7 @@ class stns_v1::server::config (
 
     'server_config':
       target  => '/etc/stns/stns.conf',
-      content => template('stns/stns.conf.erb'),
+      content => template('stns_v1/stns.conf.erb'),
       order   => '20';
 
     'users_config':
