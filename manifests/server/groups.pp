@@ -1,9 +1,9 @@
-# Define: stns::server::groups
+# Define: stns_v1::server::groups
 # ===========================
 #
-# The stns::server::groups defined type allows to configure STNS groups.
+# The stns_v1::server::groups defined type allows to configure STNS groups.
 
-define stns::server::groups (
+define stns_v1::server::groups (
   $id    = undef,
   $users = undef,
 ) {

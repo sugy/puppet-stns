@@ -1,20 +1,20 @@
-# Class: stns::server::config
+# Class: stns_v1::server::config
 # ===========================
 #
-# stns::server::config is to configure stns.
+# stns_v1::server::config is to configure stns.
 
-class stns::server::config {
+class stns_v1::server::config {
 
-  $port     = $stns::server::port
-  $user     = $stns::server::user
-  $password = $stns::server::password
+  $port     = $stns_v1::server::port
+  $user     = $stns_v1::server::user
+  $password = $stns_v1::server::password
 
   concat { '/etc/stns/stns.conf':
     ensure => present,
     owner  => 'root',
     group  => 'root',
     mode   => '0644',
-    notify => Class['stns::server::service'],
+    notify => Class['stns_v1::server::service'],
   }
 
   concat::fragment {

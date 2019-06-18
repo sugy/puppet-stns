@@ -9,10 +9,10 @@
 # Learn more about module testing here:
 # http://docs.puppetlabs.com/guides/tests_smoke.html
 #
-include stns::client
-include stns::server
+include stns_v1::client
+include stns_v1::server
 
-stns::server::groups { 'sample':
+stns_v1::server::groups { 'sample':
   id    => 1001,
   users => [
     'foo',
@@ -20,7 +20,7 @@ stns::server::groups { 'sample':
   ],
 }
 
-stns::server::users {
+stns_v1::server::users {
   'foo':
     id         => 1001,
     group_id   => 1001,

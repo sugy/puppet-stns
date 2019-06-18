@@ -1,9 +1,9 @@
-# Define: stns::server::users
+# Define: stns_v1::server::users
 # ===========================
 #
-# The stns::server::users defined type is to configure STNS users.
+# The stns_v1::server::users defined type is to configure STNS users.
 
-define stns::server::users (
+define stns_v1::server::users (
   $id         = undef,
   $group_id   = undef,
   $directory  = "/home/${title}",
