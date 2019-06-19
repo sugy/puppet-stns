@@ -1,9 +1,9 @@
 require 'spec_helper_acceptance'
 
-describe 'stns::server class' do
+describe 'stns_v2::server class' do
   let(:manifest) do
     <<-EOS
-      class { '::stns::server':
+      class { '::stns_v2::server':
         port     => 1104,
         user     => 'sample',
         password => 's@mp1e',
@@ -12,7 +12,7 @@ describe 'stns::server class' do
         ],
       }
 
-      ::stns::server::users { 'sandbox':
+      ::stns_v2::server::users { 'sandbox':
         id         => 1001,
         group_id   => 1001,
         keys       => 'ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBH3Mk+/KUhwDvZ7tthykjzU4KHNWPb9F8CLK6agvVxNijfG51Yg8mBsPqafCqHdFB15M1CisDK7iyTGhcwvHNDA= sample@local',
@@ -21,7 +21,7 @@ describe 'stns::server class' do
         password   => undef,
       }
 
-      ::stns::server::groups { 'sandbox':
+      ::stns_v2::server::groups { 'sandbox':
         id          => 1001,
         users       => 'sandbox',
         link_groups => undef,

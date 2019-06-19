@@ -1,8 +1,8 @@
-# Class: stns::client
+# Class: stns_v2::client
 # ===========================
 #
-# stns::client is to install and configure libnss-stns.
-class stns::client (
+# stns_v2::client is to install and configure libnss-stns.
+class stns_v2::client (
   $api_end_point = undef,
   $auth_token = undef,
   $user = undef,
@@ -20,14 +20,14 @@ class stns::client (
   $handle_sshd_config = false,
 ) {
 
-  require stns::repo
+  require stns_v2::repo
 
-  include stns::client::install
-  include stns::client::config
+  include stns_v2::client::install
+  include stns_v2::client::config
 
-  Class['stns::repo']
-  -> Class['stns::client::install']
-  -> Class['stns::client::config']
+  Class['stns_v2::repo']
+  -> Class['stns_v2::client::install']
+  -> Class['stns_v2::client::config']
 
   if $handle_nsswitch {
     augeas { 'nsswitch stns':

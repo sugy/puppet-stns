@@ -1,10 +1,10 @@
-# Class: stns::client::install
+# Class: stns_v2::client::install
 # ===========================
 #
-# stns::client::install is to install libnss-stns files.
+# stns_v2::client::install is to install libnss-stns files.
 
-class stns::client::install (
-  $libnss_stns_ensure = $stns::client::libnss_stns_ensure,
+class stns_v2::client::install (
+  $libnss_stns_ensure = $stns_v2::client::libnss_stns_ensure,
 ){
 
   package { 'libnss-stns-v2':

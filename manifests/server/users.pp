@@ -1,9 +1,9 @@
-# Define: stns::server::users
+# Define: stns_v2::server::users
 # ===========================
 #
-# The stns::server::users defined type is to configure STNS users.
+# The stns_v2::server::users defined type is to configure STNS users.
 
-define stns::server::users (
+define stns_v2::server::users (
   $id,
   $group_id,
   $keys,

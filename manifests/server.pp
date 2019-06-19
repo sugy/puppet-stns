@@ -1,9 +1,9 @@
-# Class: stns::server
+# Class: stns_v2::server
 # ===========================
 #
-# stns::server is to install and configure stns.
+# stns_v2::server is to install and configure stns.
 
-class stns::server (
+class stns_v2::server (
   $port = 1104,
   $user = undef,
   $password = undef,
@@ -11,15 +11,15 @@ class stns::server (
   $package_ensure = 'present',
 ) {
 
-  require stns::repo
+  require stns_v2::repo
 
-  include stns::server::install
-  include stns::server::config
-  include stns::server::service
+  include stns_v2::server::install
+  include stns_v2::server::config
+  include stns_v2::server::service
 
-  Class['stns::repo']
-  -> Class['stns::server::install']
-  -> Class['stns::server::config']
-  -> Class['stns::server::service']
+  Class['stns_v2::repo']
+  -> Class['stns_v2::server::install']
+  -> Class['stns_v2::server::config']
+  -> Class['stns_v2::server::service']
 
 }

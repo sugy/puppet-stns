@@ -1,6 +1,6 @@
 require 'spec_helper_acceptance'
 
-describe 'stns::client class' do
+describe 'stns_v2::client class' do
   let(:manifest) do
     <<-EOS
       package { 'openssh-server':
@@ -16,7 +16,7 @@ describe 'stns::client class' do
         ensure => running,
       }
 
-      class { '::stns::client':
+      class { '::stns_v2::client':
         api_end_point      => 'http://stns.example.jp:1104',
         auth_token         => 'xxxxexamplxxxxx',
         user               => 'sample',

@@ -10,8 +10,8 @@
    - [Setup requirements](#setup-requirements)
    - [Beginning with stns](#beginning-with-stns)
 1. [Usage - Configuration options and additional functionality](#usage)
-   - [Configuring stns::server](#configuring-stnsserver)
-   - [Configuring stns::client](#configuring-stnsclient)
+   - [Configuring stns_v2::server](#configuring-stnsserver)
+   - [Configuring stns_v2::client](#configuring-stnsclient)
    - [Configuring modules from Hiera](#configuring-modules-from-hiera)
 1. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
    - [Public Classes](#public-classes)
@@ -40,24 +40,24 @@ Both puppetlabs-apt is soft dependencies. If you are installing on Debian or Red
 
 ### Beginning with STNS
 
-To install the STNS server with default parameters, declare the `stns::server` class.
+To install the STNS server with default parameters, declare the `stns_v2::server` class.
 
 ```puppet
-include ::stns::server
+include ::stns_v2::server
 ```
 
-To install the STNS client (libnss\_stns) with default parameters, declare the `stns::client` class.
+To install the STNS client (libnss\_stns) with default parameters, declare the `stns_v2::client` class.
 
 ```puppet
-include ::stns::client
+include ::stns_v2::client
 ```
 
 ## Usage
 
-### Configuring stns::server
+### Configuring stns_v2::server
 
 ```puppet
-class { '::stns::server':
+class { '::stns_v2::server':
   port           => 1104,
   user           => 'sample',
   password       => 's@mp1e',
@@ -65,7 +65,7 @@ class { '::stns::server':
 }
 
 # Configures users and groups
-stns::server::users {
+stns_v2::server::users {
   'foo':
     id         => 1001,
     group_id   => 1001,
@@ -79,7 +79,7 @@ stns::server::users {
     shell      => '/bin/bash';
 }
 
-stns::server::groups { 'sample':
+stns_v2::server::groups { 'sample':
   id    => 1001,
   users => [
     'foo',
@@ -88,10 +88,10 @@ stns::server::groups { 'sample':
 }
 ```
 
-### Configuring stns::client
+### Configuring stns_v2::client
 
 ```puppet
-class { '::stns::client':
+class { '::stns_v2::client':
   api_end_point      => 'http://stns.example.jp:1104',
   user               => 'sample',
   password           => 's@mp1e',
@@ -110,55 +110,55 @@ class { '::stns::client':
 
 ```yaml
 ---
-stns::server::port: 1104
-stns::server::user: sample
-stns::server::password: s@mp1e
-stns::server::package_ensure: latest
+stns_v2::server::port: 1104
+stns_v2::server::user: sample
+stns_v2::server::password: s@mp1e
+stns_v2::server::package_ensure: latest
 
-stns::client::api_end_point: 'http://stns1.example.jp:1104'
-stns::client::user: sample
-stns::client::password: s@mp1e
-stns::client::wrapper_path: '/usr/local/bin/stns-query-wrapper'
-stns::client::chain_ssh_wrapper: null
-stns::client::ssl_verify: true
-stns::client::request_timeout: 3
-stns::client::http_proxy: 'http://proxy.example.com:1104'
-stns::client::libnss_stns_ensure: latest
-stns::client::handle_nsswitch: true
-stns::client::handle_sshd_config: true
+stns_v2::client::api_end_point: 'http://stns1.example.jp:1104'
+stns_v2::client::user: sample
+stns_v2::client::password: s@mp1e
+stns_v2::client::wrapper_path: '/usr/local/bin/stns-query-wrapper'
+stns_v2::client::chain_ssh_wrapper: null
+stns_v2::client::ssl_verify: true
+stns_v2::client::request_timeout: 3
+stns_v2::client::http_proxy: 'http://proxy.example.com:1104'
+stns_v2::client::libnss_stns_ensure: latest
+stns_v2::client::handle_nsswitch: true
+stns_v2::client::handle_sshd_config: true
 ```
 
 ## Reference
 
 ### Public Classes
 
-- [`stns::server`](#stnsserver): Installs and configures STNS.
-- [`stns::client`](#stnsclient): Installs and configures libnss\_stns.
+- [`stns_v2::server`](#stnsserver): Installs and configures STNS.
+- [`stns_v2::client`](#stnsclient): Installs and configures libnss\_stns.
 
 ### Private Classes
 
-- `stns::repo`: Setup STNS repository.
-- `stns::server::install`: Installs STNS package.
-- `stns::server::config`: Configures STNS.
-- `stns::server::server`: Manages service.
-- `stns::client::install`: Installs packages for libnss\_stns.
-- `stns::client::config`: Configures
+- `stns_v2::repo`: Setup STNS repository.
+- `stns_v2::server::install`: Installs STNS package.
+- `stns_v2::server::config`: Configures STNS.
+- `stns_v2::server::server`: Manages service.
+- `stns_v2::client::install`: Installs packages for libnss\_stns.
+- `stns_v2::client::config`: Configures
 
 ### Defined Types
 
-- `stns::server::users`: Specifies a STNS users configuration file.
-- `stns::server::groups`: Specifies a STNS groups configuration file.
+- `stns_v2::server::users`: Specifies a STNS users configuration file.
+- `stns_v2::server::groups`: Specifies a STNS groups configuration file.
 
 ### Parameters
 
-#### Class: `stns::server`
+#### Class: `stns_v2::server`
 
 - `port`: Specifies a listen port listen. Valid options: a number of a port number. Default: 1104.
 - `user`: Specifies a user for authentication. Valid options: a string containing a valid username. Default: undef.
 - `password`: Specifies a password for authentication. Valid options: a string containing a valid password. Default: undef.
 - `package_ensure`: What state the packages should be in.
 
-#### Class: `stns::client`
+#### Class: `stns_v2::client`
 
 - `api_end_point`: Valid options: a string containing a valid url. Default: undef.
 - `user`: Specifies a user for authentication. Valid options: a string containing a valid username. Default: undef.
@@ -174,7 +174,7 @@ stns::client::handle_sshd_config: true
 - `handle_nsswitch`: Configure nsswitch.conf to use STNS. Valid options: a boolean. Default: false.
 - `handle_sshd_config`: Configure sshd\_config to use STNS. Valid options: a boolean. Default: false.
 
-#### Defined Types: `stns::server::users`
+#### Defined Types: `stns_v2::server::users`
 
 - `id`: Specifies the user ID. Valid options: a number type. Default: undef.
 - `group_id`: Specifies the user's primary group. Valid options: a number type. Default: undef.
@@ -183,7 +183,7 @@ stns::client::handle_sshd_config: true
 - `keys`: Specify user attributes in an array of key = value pairs. Valid options: a string containing a valid key = value pairs. Default: undef.
 - `link_users`: Valid options: a string containing a valid password. Default: undef.
 
-#### Defined Types: `stns::server::groups`
+#### Defined Types: `stns_v2::server::groups`
 
 - `id`: Specifies the group ID. Valid options: a number type. Default: undef.
 - `users`: Specifies the members of the group. Valid options: a string containing a valid password. Default: undef.

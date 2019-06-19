@@ -3,7 +3,7 @@ require 'spec_helper_acceptance'
 describe 'stns class' do
   let(:manifest) do
     <<-EOS
-      include ::stns::repo
+      include ::stns_v2::repo
     EOS
   end
 

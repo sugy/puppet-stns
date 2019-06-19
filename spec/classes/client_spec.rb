@@ -1,7 +1,7 @@
 require 'spec_helper'
-describe 'stns::client' do
+describe 'stns_v2::client' do
   context 'with defaults for all parameters' do
     it { is_expected.to compile.with_all_deps }
-    it { is_expected.to contain_class('stns::client') }
+    it { is_expected.to contain_class('stns_v2::client') }
   end
 end

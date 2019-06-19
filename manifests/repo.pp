@@ -1,8 +1,8 @@
-# Class: stns::repo
+# Class: stns_v2::repo
 # ===========================
 #
-# stns::repo is to setup repository.
-class stns::repo {
+# stns_v2::repo is to setup repository.
+class stns_v2::repo {
 
   $gpgkey_url = 'https://repo.stns.jp/gpg/GPG-KEY-stns'
 
@@ -21,7 +21,7 @@ class stns::repo {
       include ::apt
       require ::apt::update
 
-      include stns::repo::apt
+      include stns_v2::repo::apt
     }
     default: {
       fail("Unsupported osfamily: ${::osfamily}")
