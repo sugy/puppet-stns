@@ -4,11 +4,11 @@
 # stns::server is to install and configure stns.
 
 class stns::server (
-  Integer          $port = 1104,
-  Optional[String] $user = undef,
-  Optional[String] $password = undef,
-  Optional[Array]  $tokens = undef,
-  String           $package_ensure = 'present',
+  $port = 1104,
+  $user = undef,
+  $password = undef,
+  $tokens = undef,
+  $package_ensure = 'present',
 ) {
 
   require stns::repo
