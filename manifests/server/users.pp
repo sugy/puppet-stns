@@ -16,7 +16,7 @@ define stns_v2::server::users (
 
   concat::fragment { "users_${title}":
     target  => '/etc/stns/server/stns.conf',
-    content => template('stns/server/users.conf.erb'),
+    content => template('stns_v2/server/users.conf.erb'),
     order   => '41';
   }
 
